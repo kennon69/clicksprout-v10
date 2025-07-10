@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --primary: 346 77% 49.8%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 45.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 346 77% 49.8%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --primary: 346 77% 49.8%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 346 77% 49.8%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    background-image: linear-gradient(to right, #2563eb, #9333ea, #db2777);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .gradient-bg {
+    background-image: linear-gradient(to bottom right, #eff6ff, #fff, #f3e8ff);
+  }
+  
+  .dark .gradient-bg {
+    background-image: linear-gradient(to bottom right, #111827, #1f2937, #6d28d9);
+  }
+  
+  .glass-effect {
+    backdrop-filter: blur(4px);
+    background-color: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .dark .glass-effect {
+    background-color: rgba(17,24,39,0.8); /* gray-900/80 */
+    border: 1px solid rgba(55,65,81,0.2); /* gray-700/20 */
+  }
+  
+  .btn-primary {
+    background-image: linear-gradient(to right, #2563eb, #9333ea);
+    color: #fff;
+    font-weight: 600;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.1), 0 4px 6px -4px rgba(147, 51, 234, 0.1);
+    transform: translateY(0);
+  }
+  .btn-primary:hover {
+    background-image: linear-gradient(to right, #1d4ed8, #7c3aed);
+    box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.15), 0 8px 10px -6px rgba(147, 51, 234, 0.15);
+    transform: translateY(-2px);
+  }
+  
+  .btn-secondary {
+    background-color: #fff;
+    color: #1a202c;
+    border: 1px solid #e5e7eb;
+    font-weight: 600;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+  }
+  .btn-secondary:hover {
+    background-color: #f9fafb;
+    box-shadow: 0 4px 6px 0 rgba(0,0,0,0.07);
+  }
+  .dark .btn-secondary {
+    background-color: #1f2937;
+    color: #fff;
+    border: 1px solid #374151;
+  }
+  .dark .btn-secondary:hover {
+    background-color: #374151;
+  }
+  
+  /* Enhanced animations and effects for ClickSprout */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { 
+      transform: translateY(20px); 
+      opacity: 0; 
+    }
+    to { 
+      transform: translateY(0); 
+      opacity: 1; 
+    }
+  }
+  
+  @keyframes pulseGlow {
+    0%, 100% { 
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.1); 
+    }
+    50% { 
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.3); 
+    }
+  }
+  
+  /* Enhanced glass morphism effects */
+  .glass-card {
+    backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    border-radius: 12px;
+  }
+  
+  .dark .glass-card {
+    background-color: rgba(31, 41, 55, 0.75);
+    border: 1px solid rgba(55, 65, 81, 0.125);
+  }
+  
+  /* AI feature indicators */
+  .ai-indicator {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .ai-indicator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
+  /* Campaign status indicators */
+  .status-active {
+    background: linear-gradient(135deg, #10b981, #059669);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  }
+  
+  .status-scheduled {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+  }
+  
+  .status-paused {
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+    box-shadow: 0 0 20px rgba(107, 114, 128, 0.3);
+  }
+}
