@@ -1,10 +1,10 @@
 {
-  "version": 2,
-  "env": {
-    "NODE_ENV": "production"
-  },
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
   "functions": {
-    "src/app/api/**/*.ts": {
+    "app/api/**/*.ts": {
       "maxDuration": 30
     }
   },
@@ -25,16 +25,6 @@
           "value": "Content-Type, Authorization"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/dashboard/:path*",
-      "destination": "/dashboard/:path*"
-    },
-    {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
     }
   ]
 }
